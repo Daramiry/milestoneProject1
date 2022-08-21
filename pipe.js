@@ -1,4 +1,4 @@
-const HOLE_HEIGHT = 250
+const HOLE_HEIGHT = 200
 const PIPE_WIDTH = 120
 let pipes = []
 const PIPE_INTERVAL = 1500

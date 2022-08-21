@@ -22,20 +22,23 @@ body {
     margin-top: .5rem;
 }
 
+.nightmare {
+    background-size: 100em;
+}
 .hide {
     display: none;
 }
 
 .bird {
-    --bird-top: -000;
+    --bird-top: -1000;
     --bird-size: 80px;
     position: absolute;
-    /* background-color: hsl(50 ,75%, 50%); */
+    background-color: black; 
     width: var(--bird-size);
     height: var(--bird-size);
     left: var(--bird-size);
     top: calc(var(--bird-top) * 1px);
-    /* border-radius: 50%; */
+    border-radius: 50%; 
 }
 
 .pipe {
