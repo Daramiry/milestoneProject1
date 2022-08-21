@@ -1,20 +1,42 @@
-const HOLE_HEIGHT = 120
-const pipes = []
-const PipeInterval = 1500
-const pipeSpeed = .75
-let timeSinceLastPipe = 0
+const HOLE_HEIGHT = 250
+const PIPE_WIDTH = 120
+let pipes = []
+const PIPE_INTERVAL = 1500
+const PIPE_SPEED = .75
+let timeSinceLastPipe
+let pipeScore
+
+export function setupPipes() {
+    document.documentElement.style.setProperty("--pipe-width", PIPE_WIDTH)
+    document.documentElement.style.setProperty("--hole-height", HOLE_HEIGHT)
+    pipes.forEach(pipe => pipe.remove())
+    timeSinceLastPipe = PIPE_INTERVAL
+    pipeScore = 0
+}
 
 export function updatePipes(delta) {
     timeSinceLastPipe += delta
 
-    if (timeSinceLastPipe > PipeInterval )
-        timeSinceLastPipe -= PipeInterval
+    if (timeSinceLastPipe > PIPE_INTERVAL ) {
+              timeSinceLastPipe -= PIPE_INTERVAL
     createPipe()
 }
+    pipes.forEach(pipe => {
+        if ( pipe.left + PIPE_WIDTH < 0 ) {
+            pipeScore++
+            return pipe.remove()
+        }
+       pipe.left = pipe.left - delta * PIPE_SPEED
+    })
+    }
+  
+export function getPipeScore() {
+    return pipeScore
+}
 
-pipes.forEach(pipe => {
-    pipe.left = pipe.left - delta * pipeSpeed
-})
+export function pipeRects() {
+    return pipes.flatMap(pipe => pipe.rects())
+}
 
 function createPipe() {
     const pipeElem = document.createElement("div")
@@ -25,17 +47,27 @@ function createPipe() {
     pipeElem.classList.add("pipe")
     pipeElem.style.setProperty(
         "--hole-top",
-         randomNumberBetween(HOLE_HEIGHT * 1.5,
+         randomNumberBetween(
+            HOLE_HEIGHT * 1.5,
          window.innerHeight - HOLE_HEIGHT * 0.5
          )
     )
     const pipe = {
         get left() {
-            return parseFloat(getComputedStyle(pipeElem).getPropertyPriorityValue
-            ("--pipe-left"))
+            return parseFloat(getComputedStyle(pipeElem).getPropertyValue("--pipe-left"))
         },
         set left(value) {
             pipeElem.style.setProperty("--pipe-left", value)
+        },
+        remove() {
+            pipes = pipes.filter(p => p !== pipe)
+            pipeElem.remove()
+        },
+        rects() {
+            return [ 
+                topElem.getBoundingClientRect(),
+                bottomElem.getBoundingClientRect(),
+            ]
         }
     }
     pipe.left = window.innerWidth
