@@ -1,10 +1,19 @@
+/* grabbing all boxes for 'after' and 'before' */
 *, *::after, *::before {
     box-sizing: border-box;
 }
 
+h1 {
+    color: red;
+}
 body {
     margin: 0;
     overflow: hidden;
+}
+
+#nightmare {
+    height: 55rem;
+    width: 127rem;
 }
 
 .title {
@@ -21,10 +30,6 @@ body {
 .subtitle {
     margin-top: .5rem;
 }
-
-.nightmare {
-    background-size: 100em;
-}
 .hide {
     display: none;
 }
@@ -40,7 +45,7 @@ body {
     top: calc(var(--bird-top) * 1px);
     border-radius: 50%; 
 }
-
+/* create layout of the pipe on 'CSS' and modify on 'javaScript' */
 .pipe {
     position: absolute;
     top: 0;
@@ -50,7 +55,6 @@ body {
 }
 
 .pipe > .segment {
-    
     position: absolute;
     width: 100%;
     background-color: green;
@@ -65,3 +69,4 @@ body {
     bottom: 0;
     top: calc(100vh - (var(--hole-top) * 1px) + calc(var(--hole-height) * 1px));
 }
+/*               end of creating 'pipes'             */

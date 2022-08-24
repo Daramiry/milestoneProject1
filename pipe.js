@@ -1,11 +1,18 @@
+// create a variable for pipe height and width
 const HOLE_HEIGHT = 200
 const PIPE_WIDTH = 120
+
+// create variables to determine how and when the pipes should be created
 let pipes = []
 const PIPE_INTERVAL = 1500
 const PIPE_SPEED = .75
 let timeSinceLastPipe
-let pipeScore
 
+// keeps score
+let pipeScore = 0
+
+// using export to transfer files between other 'JS' files 
+// creating score for pipes passed, and having pipes duplicate in random 
 export function setupPipes() {
     document.documentElement.style.setProperty("--pipe-width", PIPE_WIDTH)
     document.documentElement.style.setProperty("--hole-height", HOLE_HEIGHT)
@@ -37,7 +44,9 @@ export function getPipeScore() {
 export function pipeRects() {
     return pipes.flatMap(pipe => pipe.rects())
 }
+// end of export 
 
+// function to give the pipes a collision with "bird" and add remove to take pipes away off screen
 function createPipe() {
     const pipeElem = document.createElement("div")
     const topElem = createPipeSegment("top")
@@ -80,6 +89,8 @@ function createPipeSegment(position) {
     segment.classList.add("segment", position)
     return segment
 }
+
+// make sure the numbers returned are always positive
 function randomNumberBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }

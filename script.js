@@ -1,7 +1,10 @@
+// using import to call functions from other 'JS' files 
+
 // import functions using "./bird.js" file
 import { updateBird, setupBird, getBirdRect } from "./bird.js"
 // import functions from "./pipe.js" file
 import { updatePipes, setupPipes, getPipeScore, pipeRects } from "./pipe.js"
+// end of import 
 
 // adding eventListener to start up game
 document.addEventListener("keypress", handleStart, { once: true})
@@ -11,6 +14,7 @@ const subtitle = document.querySelector("[data-subtitle]")
 // creating a variable to produce and log frame rate/time
 let lastTime
 
+// request framerate time, making it return time as low of a number as possible 
 function updateLoop(time) {
     if (lastTime == null) {
         lastTime = time
@@ -33,6 +37,7 @@ function checkLose() {
     return outsideWorld || insidePipe
 }
 
+// code to make "bird" react to collision of pipe
 function pipeCollision(rect1, rect2) {
     return (
         rect1.left < rect2.right &&
