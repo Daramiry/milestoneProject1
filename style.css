@@ -4,8 +4,10 @@
 }
 
 h1 {
+    border-color: black;
     color: goldenrod;
 }
+
 body {
     margin: 0;
     overflow: hidden;
@@ -17,13 +19,12 @@ body {
 }
 
 .title {
-    z-index: 10;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     inset: 0;
-    margin: 0;
+    margin: 0px;
     flex-direction: column;
 }
 
@@ -33,7 +34,6 @@ body {
 .hide {
     display: none;
 }
-
 .bird {
     --bird-top: -1000;
     --bird-size: 80px;
