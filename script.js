@@ -63,6 +63,6 @@ function handleLose() {
     subtitle.classList.remove("hide")
     subtitle.textContent = `${getPipeScore()} Pipes`
     document.addEventListener("keypress", handleStart, { once: true})
-    }, 1000)
+    }, 500)
     
 }
