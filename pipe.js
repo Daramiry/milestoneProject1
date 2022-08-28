@@ -12,7 +12,7 @@ let timeSinceLastPipe
 let pipeScore = 0
 
 // using export to transfer files between other 'JS' files 
-// creating score for pipes passed, and having pipes duplicate in random 
+// counts passed pipes
 export function setupPipes() {
     document.documentElement.style.setProperty("--pipe-width", PIPE_WIDTH)
     document.documentElement.style.setProperty("--hole-height", HOLE_HEIGHT)
@@ -46,7 +46,7 @@ export function pipeRects() {
 }
 // end of export 
 
-// function to give the pipes a collision with "bird" and add remove to take pipes away off screen
+// adds collision, and removes pipes
 function createPipe() {
     const pipeElem = document.createElement("div")
     const topElem = createPipeSegment("top")

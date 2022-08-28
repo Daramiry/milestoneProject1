@@ -26,13 +26,12 @@ export function updateBird(delta) {
     timeSinceLastJump += delta
 }
 
-// function to register when bird is leaving area to record a loss 
+// gives collision going off screen
 export function getBirdRect() {
     return birdElem.getBoundingClientRect()
 }
 // end of export 
 
-// give bird falldown 
 function setTop(top){
     birdElem.style.setProperty("--bird-top", top)
 }
