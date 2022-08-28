@@ -16,7 +16,7 @@ export function setupBird() {
     document.addEventListener('keydown', handleJump)
 }
 
-// creates the functiion to give bird fall down speed 
+// fall down speed 
 export function updateBird(delta) {
     if(timeSinceLastJump < JUMP_DURATION) {
         setTop(getTop() - BIRD_SPEED * delta)
@@ -32,7 +32,7 @@ export function getBirdRect() {
 }
 // end of export 
 
-// give bird falldown
+// give bird falldown 
 function setTop(top){
     birdElem.style.setProperty("--bird-top", top)
 }
@@ -40,9 +40,8 @@ function setTop(top){
 function getTop() {
     return parseFloat(getComputedStyle(birdElem).getPropertyValue("--bird-top"))
 } 
-// end of falldown
 
-// functiion to handle bird jumps when pressing "spacebar"
+// spacebar jump function
 function handleJump(e) {
     if(e.code !== "Space") return
 
