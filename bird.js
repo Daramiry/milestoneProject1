@@ -1,10 +1,9 @@
 // grabs bird using [data-bird] from "index.html"
 const birdElem = document.querySelector('[data-bird]')
 
-// give bird good fall down speed 
+// bird fall speed
 const BIRD_SPEED = .40
 
-// jump duration is set to 125 milaseconds for good height
 const JUMP_DURATION = 125
 
 let timeSinceLastJump = Number.POSITIVE_INFINITY

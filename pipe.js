@@ -1,17 +1,17 @@
-// create a variable for pipe height and width
+// creates a variable for pipe height and width
 const HOLE_HEIGHT = 200
 const PIPE_WIDTH = 120
 
-// create variables to determine how and when the pipes should be created
+// creates pipes at random size
 let pipes = []
 const PIPE_INTERVAL = 1500
 const PIPE_SPEED = .75
 let timeSinceLastPipe
 
-// keeps score
+// score
 let pipeScore = 0
 
-// using export to transfer files between other 'JS' files 
+// export functions
 // counts passed pipes
 export function setupPipes() {
     document.documentElement.style.setProperty("--pipe-width", PIPE_WIDTH)
@@ -44,7 +44,7 @@ export function getPipeScore() {
 export function pipeRects() {
     return pipes.flatMap(pipe => pipe.rects())
 }
-// end of export 
+// end of export functions
 
 // adds collision, and removes pipes
 function createPipe() {
