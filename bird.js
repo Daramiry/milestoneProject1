@@ -32,7 +32,7 @@ export function getBirdRect() {
 }
 // end of export 
 
-// giving bird gravity to make it fall down
+// give bird falldown
 function setTop(top){
     birdElem.style.setProperty("--bird-top", top)
 }
@@ -40,7 +40,7 @@ function setTop(top){
 function getTop() {
     return parseFloat(getComputedStyle(birdElem).getPropertyValue("--bird-top"))
 } 
-// end of gravity 
+// end of falldown
 
 // functiion to handle bird jumps when pressing "spacebar"
 function handleJump(e) {
