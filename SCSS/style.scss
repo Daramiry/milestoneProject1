@@ -1,0 +1,72 @@
+// NEW SCSS FOLDER UP TO DATE
+
+$dark-color: maroon;
+$light-color: rgb(170, 126, 126);
+$text: goldenrod;
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: $dark-color;
+    h1 {
+        color: $text;
+        border-color: black;
+        border: 2px;
+    }
+    #nightmare {
+        height: 55rem;
+        width: 127rem;
+    }
+    .title {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        inset: 0;
+        margin: 0px;
+        flex-direction: column;
+    }
+    .subtitle {
+        margin-top: .5rem;
+      }
+      .hide {
+        display: none;
+      }
+      .bird {
+        --bird-top: -1000;
+        --bird-size: 80px;
+        position: absolute;
+        background-color: black; 
+        width: var(--bird-size);
+        height: var(--bird-size);
+        left: var(--bird-size);
+        top: calc(var(--bird-top) * 1px);
+        border-radius: 50%; 
+      }
+      /* create layout of the pipe on 'CSS' and modify on 'javaScript' */
+      .pipe {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: calc(var(--pipe-width) * 1px);
+        left: calc(var(--pipe-left) * 1px)
+      }
+      
+      .pipe > .segment {
+        position: absolute;
+        width: 100%;
+        background-color: green;
+      }
+      
+      .pipe > .top {
+        top: 0;
+        bottom: calc(var(--hole-top) * 1px);
+      }
+      
+      .pipe > .bottom {
+        bottom: 0;
+        top: calc(100vh - (var(--hole-top) * 1px) + calc(var(--hole-height) * 1px));
+      }
+      /*               end of creating 'pipes'             */
+}
+

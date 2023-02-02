@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: maroon;
+  /* create layout of the pipe on 'CSS' and modify on 'javaScript' */
+  /*               end of creating 'pipes'             */
+}
+body h1 {
+  color: goldenrod;
+  border-color: black;
+  border: 2px;
+}
+body #nightmare {
+  height: 55rem;
+  width: 127rem;
+}
+body .title {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  margin: 0px;
+  flex-direction: column;
+}
+body .subtitle {
+  margin-top: 0.5rem;
+}
+body .hide {
+  display: none;
+}
+body .bird {
+  --bird-top: -1000;
+  --bird-size: 80px;
+  position: absolute;
+  background-color: black;
+  width: var(--bird-size);
+  height: var(--bird-size);
+  left: var(--bird-size);
+  top: calc(var(--bird-top) * 1px);
+  border-radius: 50%;
+}
+body .pipe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(var(--pipe-width) * 1px);
+  left: calc(var(--pipe-left) * 1px);
+}
+body .pipe > .segment {
+  position: absolute;
+  width: 100%;
+  background-color: green;
+}
+body .pipe > .top {
+  top: 0;
+  bottom: calc(var(--hole-top) * 1px);
+}
+body .pipe > .bottom {
+  bottom: 0;
+  top: calc(100vh - var(--hole-top) * 1px + var(--hole-height) * 1px);
+}/*# sourceMappingURL=style.css.map */
